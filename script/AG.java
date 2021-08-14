@@ -8,7 +8,10 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import script.agaprendizagem.AgAprendizagem;
 import script.agaprendizagem.AgEvolutivo;
+import script.agaprendizagem.AgHibrido;
+import script.agaprendizagem.AgReforco;
 import script.animal.Macaco;
 import script.arquivar.Arquivar;
 
@@ -17,33 +20,31 @@ public class AG {
     private Ambiente ambiente;
     private final int iteracoes; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private final int eliminar;
-    private AgEvolutivo evolutivo;
-    private int AG_TYPE;
+    private AgAprendizagem agAprendizagem;
     // Variáveis para contabilizar tempo de execução
     private Instant start;
     private Instant finish;
     
-    public AG(Ambiente ambiente, int iteracoes, int eliminar, int AG_TYPE) {
+    public AG(Ambiente ambiente, int iteracoes, int eliminar) {
         this.ambiente = ambiente;
         this.iteracoes = iteracoes;
         this.eliminar = eliminar;
-        this.AG_TYPE = AG_TYPE;
     }
     
     public void iniciar(){
         start = Instant.now();
         try {
             Arquivar arquivar = new Arquivar(ambiente);
-            evolutivo = new AgEvolutivo(ambiente, arquivar, iteracoes, eliminar);
+            agAprendizagem = instanciaAlgoritmo(arquivar);
             while(true){
                 // Varias interações ocorrem com movimentações dos animais, disparos de alarmes e etc.
-                evolutivo.processaGeracao();
+                agAprendizagem.processaGeracao();
                  //Vefica se o AG já atingiu o resultado final
                 if(verificaFim(ambiente.getMacacos())){
                     System.out.println("Encontrou a solução");
                     break;
                 }
-                evolutivo.novaGeracao();
+                agAprendizagem.novaGeracao();
                 zerarMortesMacacos();
             }
             arquivar.finalizaArquivosCSV(ambiente.getMacacos());
@@ -69,11 +70,17 @@ public class AG {
     
     public void imprimeDadosFinais(){
         System.out.println();
-        System.out.println("Total de Gerações: "+(evolutivo.getGeracao() + 1));
-        System.out.println("Total de Iterações: "+evolutivo.getCountIteracoes());
+        System.out.println("Total de Gerações: "+(agAprendizagem.getGeracao() + 1));
+        System.out.println("Total de Iterações: "+agAprendizagem.getCountIteracoes());
         System.out.println("Tempo de execução: "+timeExecution()+"ms");
     }
     
+    public AgAprendizagem instanciaAlgoritmo(Arquivar arquivar){
+        return Principal.AG_TYPE == AgAprendizagem.EVOLUTIVO ? new AgEvolutivo(ambiente, arquivar, iteracoes, eliminar)
+             : Principal.AG_TYPE == AgAprendizagem.REFORCO ? new AgReforco(ambiente, arquivar, iteracoes)
+             : new AgHibrido(ambiente, arquivar, iteracoes);
+    }
+
     public long timeExecution(){
         return Duration.between(start, finish).toMillis();  //in millis
     }

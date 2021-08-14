@@ -7,30 +7,13 @@ import script.Ambiente;
 import script.animal.Macaco;
 import script.arquivar.Arquivar;
 
-public class AgEvolutivo {
+public class AgEvolutivo extends AgAprendizagem {
 
-  private Ambiente ambiente;
-  private Arquivar arquivar;
-  private final int iteracoes; // Número de vezes que cada animal se movimenta no ambiente a cada geração
-  private final int eliminar;
-  private int contIteracoes = 0; // Contabiliza o total de iterações efetuadas por cada animal
-  private int geracao = 0; // Contabiliza as gerações do algoritmo evolutivo
+  protected final int eliminar;
 
   public AgEvolutivo(Ambiente ambiente, Arquivar arquivar, int iteracoes, int eliminar) {
-    this.ambiente = ambiente;
-    this.arquivar = arquivar;
-    this.iteracoes = iteracoes;
+    super(ambiente, arquivar, iteracoes);
     this.eliminar = eliminar;
-  }
-
-  public void processaGeracao() {
-    // Varias interações ocorrem com movimentações dos animais, disparos de alarmes e etc.
-    for (int i = 0; i < iteracoes; i++) {
-      ambiente.moverTodosAnimaisAleatorio();
-      arquivar.escreveArquivosIteracao(ambiente);
-      contIteracoes++;
-    }
-    arquivar.escreveArquivosGeracao(ambiente, geracao);
   }
 
   public void novaGeracao() {
@@ -39,8 +22,7 @@ public class AgEvolutivo {
     // Esta função ira gerar uma nova geração de individuos mantendo os mais aptos e
     // substituindo os menos aptos
     int n_Macacos = ambiente.getN_Macacos(); // Numero de macacos no
-    // int eliminar = n_Macacos * corte / 100; // Numero de individuos que serão
-    // eliminados
+    // int eliminar = n_Macacos * corte / 100; // Numero de individuos que serão eliminados
     int index = n_Macacos - eliminar;
     Macaco macacos[] = ambiente.getMacacos();
     Random r = new Random();
@@ -72,14 +54,6 @@ public class AgEvolutivo {
       }
     }
     return novo;
-  }
-
-  public int getGeracao(){
-    return geracao;
-  }
-
-  public int getCountIteracoes(){
-    return contIteracoes;
   }
 
 }

@@ -5,6 +5,8 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import script.Principal;
+import script.agaprendizagem.AgAprendizagem;
 import script.arquivar.*;
 
 public class Macaco extends Animal implements Comparable<Macaco>{
@@ -77,7 +79,11 @@ public class Macaco extends Animal implements Comparable<Macaco>{
         if(predadorParaMacaco != idPredadorCorreto){ // Se errar o predador contabiliza mais uma morte para o macaco
             mortes++;
         }
-        reforco(signo, idPredadorCorreto);
+        if (
+            Principal.AG_TYPE == AgAprendizagem.REFORCO || 
+            Principal.AG_TYPE == AgAprendizagem.HIBRIDO
+        )
+            reforco(signo, idPredadorCorreto);
     }
     
     public int alarme(Predador predador){

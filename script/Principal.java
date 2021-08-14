@@ -16,14 +16,14 @@ public class Principal {
     private static int iteracoes = 20; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private static int eliminar = 1;
 
-    private static final int AG_TYPE = AgAprendizagem.EVOLUTIVO;
+    public static final int AG_TYPE = AgAprendizagem.EVOLUTIVO;
     private static final boolean SHOW_GRAFICS = false;
     
     public static void main(String[] args) {
         ArquivoCSV.limparPastasArquivosCSV(); // Limpa as pasta gerar novos arquivos
         // Inicializa um ambiente com Macacos e Predadores
         Ambiente ambiente = new Ambiente(n_Macacos, n_Prepadores, dimensao);
-        AG ag = new AG(ambiente, iteracoes, eliminar, AG_TYPE);
+        AG ag = new AG(ambiente, iteracoes, eliminar);
         ag.iniciar();
         ag.imprimeDadosFinais();
         gravaResultados(ambiente.getMacacos());
