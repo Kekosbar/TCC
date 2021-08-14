@@ -78,7 +78,7 @@ public class AG {
     public AgAprendizagem instanciaAlgoritmo(Arquivar arquivar){
         return Principal.AG_TYPE == AgAprendizagem.EVOLUTIVO ? new AgEvolutivo(ambiente, arquivar, iteracoes, eliminar)
              : Principal.AG_TYPE == AgAprendizagem.REFORCO ? new AgReforco(ambiente, arquivar, iteracoes)
-             : new AgHibrido(ambiente, arquivar, iteracoes);
+             : new AgHibrido(ambiente, arquivar, iteracoes, eliminar);
     }
 
     public long timeExecution(){

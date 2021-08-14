@@ -16,7 +16,7 @@ public class Principal {
     private static int iteracoes = 20; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private static int eliminar = 1;
 
-    public static final int AG_TYPE = AgAprendizagem.EVOLUTIVO;
+    public static final int AG_TYPE = AgAprendizagem.HIBRIDO;
     private static final boolean SHOW_GRAFICS = false;
     
     public static void main(String[] args) {

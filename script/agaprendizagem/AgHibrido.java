@@ -4,15 +4,17 @@ import script.Ambiente;
 import script.arquivar.Arquivar;
 
 public class AgHibrido extends AgAprendizagem {
+
+  private AgEvolutivo agEvolutivo;
   
-  public AgHibrido(Ambiente ambiente, Arquivar arquivar, int iteracoes) {
+  public AgHibrido(Ambiente ambiente, Arquivar arquivar, int iteracoes, int eliminar) {
     super(ambiente, arquivar, iteracoes);
-    //TODO Auto-generated constructor stub
+    this.agEvolutivo = new AgEvolutivo(ambiente, arquivar, iteracoes, eliminar);
   }
 
   @Override
   public void novaGeracao() {
-    // TODO Auto-generated method stub
+    agEvolutivo.novaGeracao();
     geracao++;
   }
 }
