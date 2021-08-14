@@ -10,16 +10,16 @@ import com.opencsv.CSVWriter;
 
 public class ArquivoCSV {
 
-    private String nomeArquivo;
-    private String nomePasta;
-    private String[] cabecalho;
+    // private String nomeArquivo;
+    // private String nomePasta;
+    // private String[] cabecalho;
     private CSVWriter csvWriter;
     private Writer writer;
 
     public ArquivoCSV(String nomeArquivo, String nomePasta, String[] cabecalho) throws IOException {
-        this.nomeArquivo = nomeArquivo;
-        this.nomePasta = nomePasta;
-        this.cabecalho = cabecalho;
+        // this.nomeArquivo = nomeArquivo;
+        // this.nomePasta = nomePasta;
+        // this.cabecalho = cabecalho;
         
         criarPasta(nomePasta);
         writer = Files.newBufferedWriter(Paths.get(nomePasta+"/"+nomeArquivo+".csv"));
@@ -52,5 +52,6 @@ public class ArquivoCSV {
     public void criarArquivo(){
         
     }
+
     
 }

@@ -11,6 +11,7 @@ public class Principal {
     // Dados para o algoritmo evolutivo
     private static int iteracoes = 60; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private static int eliminar = 1;
+    private static final boolean SHOW_GRAFICS = false;
     
     public static void main(String[] args) {
         limparPastasArquivosCSV(); // Limpa as pasta gerar novos arquivos
@@ -20,7 +21,8 @@ public class Principal {
         ag.iniciar();
         ag.imprimeDadosFinais();
         gravaResultados(ambiente.getMacacos());
-        //mostraGraficos();
+        if(SHOW_GRAFICS)
+            mostraGraficos();
     }
     
     private static void limparPastasArquivosCSV(){

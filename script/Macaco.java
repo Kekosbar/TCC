@@ -127,7 +127,7 @@ public class Macaco extends Animal implements Comparable<Macaco>{
 
     public float[][] clonar(){
         float[][] clone = new float[10][3];
-        Random r = new Random();
+        // Random r = new Random();
         for(int i=0; i<10; i++){
             for(int j=0; j<3; j++){
                 clone[i][j] = signos[i][j];
@@ -260,7 +260,7 @@ public class Macaco extends Animal implements Comparable<Macaco>{
     
     @Override
     public String toString() {
-        String s = "S1 S2 S3 S4 S5 S6 S7 S8 S9 S10";
+        // String s = "S1 S2 S3 S4 S5 S6 S7 S8 S9 S10";
         return "M";
     }
 
