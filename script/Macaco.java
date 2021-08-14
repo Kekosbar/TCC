@@ -43,9 +43,9 @@ public class Macaco extends Animal implements Comparable<Macaco>{
         this.id = ++contMacacos;
         try {
             String[] cabecalho = new String[]{"Iteração", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"};
-            arquivoTabelaSignoAguia = new ArquivoCSV("Macaco_"+id+"_Aguia", "Macacos/SignosPorPredador", cabecalho);
-            arquivoTabelaSignoCobra = new ArquivoCSV("Macaco_"+id+"_Cobra", "Macacos/SignosPorPredador", cabecalho);
-            arquivoTabelaSignoTigre = new ArquivoCSV("Macaco_"+id+"_Tigre", "Macacos/SignosPorPredador", cabecalho);
+            arquivoTabelaSignoAguia = new ArquivoCSV("Macaco_"+id+"_Aguia", Arquivar.ROOT_PATH + "Macacos/SignosPorPredador", cabecalho);
+            arquivoTabelaSignoCobra = new ArquivoCSV("Macaco_"+id+"_Cobra", Arquivar.ROOT_PATH + "Macacos/SignosPorPredador", cabecalho);
+            arquivoTabelaSignoTigre = new ArquivoCSV("Macaco_"+id+"_Tigre", Arquivar.ROOT_PATH + "Macacos/SignosPorPredador", cabecalho);
         } catch (IOException ex) {
             Logger.getLogger(Macaco.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -168,7 +168,7 @@ public class Macaco extends Animal implements Comparable<Macaco>{
     private void arquivarDadosUsoSigno(String nomeMacaco){
         String[] cabecalho = new String[]{"Signos","P1","P2","P3"};
         try {
-            ArquivoCSV arquivo = new ArquivoCSV(nomeMacaco, "Macacos", cabecalho);
+            ArquivoCSV arquivo = new ArquivoCSV(nomeMacaco, Arquivar.ROOT_PATH + "Macacos", cabecalho);
             for(int i=0; i<10; i++){
                 String[] linha = new String[4];
                 linha[0] = "S" + (i+1);

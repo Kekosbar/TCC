@@ -26,6 +26,8 @@ public class Arquivar {
     private ArquivoCSV arquivoTigreSignosPorIteracao;
     private ArquivoCSV arquivoAguiaSignosPorIteracao;
     private ArquivoCSV arquivoCobraSignosPorIteracao;
+
+    public static final String ROOT_PATH = "resultados/";
     
     private int countEscreveIteracao = 0;
 
@@ -33,34 +35,34 @@ public class Arquivar {
         // Esta função prepara as variáveis que irão escrever os arquivos CSV
         // Arquivo de geração por mortes
         String[] cabecalhoMortesGeracao = new String[]{"Geração","Mortes"};
-        arquivoMortesGeracao = new ArquivoCSV("MortesPorGeracao", "Dados/Geracao", cabecalhoMortesGeracao);
+        arquivoMortesGeracao = new ArquivoCSV("MortesPorGeracao", ROOT_PATH + "Dados/Geracao", cabecalhoMortesGeracao);
         // Arquivo de probabilidade por geração
         String[] cabecalhoProbabilidadeGeracao = new String[] {"Geração", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"};
-        arquivoProbabilidadeUsoSignoTigreGeracao = new ArquivoCSV("probabilidadeUsoSignosTigre", "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
-        arquivoProbabilidadeUsoSignoAguiaGeracao = new ArquivoCSV("probabilidadeUsoSignosAguia", "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
-        arquivoProbabilidadeUsoSignoCobraGeracao = new ArquivoCSV("probabilidadeUsoSignosCobra", "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
+        arquivoProbabilidadeUsoSignoTigreGeracao = new ArquivoCSV("probabilidadeUsoSignosTigre", ROOT_PATH + "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
+        arquivoProbabilidadeUsoSignoAguiaGeracao = new ArquivoCSV("probabilidadeUsoSignosAguia", ROOT_PATH + "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
+        arquivoProbabilidadeUsoSignoCobraGeracao = new ArquivoCSV("probabilidadeUsoSignosCobra", ROOT_PATH + "Predador/Geracao/Probabilidade", cabecalhoProbabilidadeGeracao);
         // Arquivo de probabilidade por iteração
         String[] cabecalhoProbabilidadeIteracao = new String[] {"Iteração", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"};
-        arquivoProbabilidadeUsoSignoTigreIteracao = new ArquivoCSV("probabilidadeUsoSignosTigre", "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
-        arquivoProbabilidadeUsoSignoAguiaIteracao = new ArquivoCSV("probabilidadeUsoSignosAguia", "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
-        arquivoProbabilidadeUsoSignoCobraIteracao = new ArquivoCSV("probabilidadeUsoSignosCobra", "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
+        arquivoProbabilidadeUsoSignoTigreIteracao = new ArquivoCSV("probabilidadeUsoSignosTigre", ROOT_PATH + "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
+        arquivoProbabilidadeUsoSignoAguiaIteracao = new ArquivoCSV("probabilidadeUsoSignosAguia", ROOT_PATH + "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
+        arquivoProbabilidadeUsoSignoCobraIteracao = new ArquivoCSV("probabilidadeUsoSignosCobra", ROOT_PATH + "Predador/Iteracao/Probabilidade", cabecalhoProbabilidadeIteracao);
         // Arquivo de uso signos por geração
         String[] cabecalhoUsoSignos = new String[]{"Geração","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10"};
-        arquivoUsoSignosPorGeracao = new ArquivoCSV("UsoSignosGeracao", "Dados/Geracao", cabecalhoUsoSignos);
+        arquivoUsoSignosPorGeracao = new ArquivoCSV("UsoSignosGeracao", ROOT_PATH + "Dados/Geracao", cabecalhoUsoSignos);
         // Arquivo de uso signos por iteração
         String[] cabecalhoUsoSignosIteracao = new String[]{"Iteração","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10"};
-        arquivoUsoSignosIteracao = new ArquivoCSV("UsoSignosIteracao", "Dados/Iteracao", cabecalhoUsoSignosIteracao);
+        arquivoUsoSignosIteracao = new ArquivoCSV("UsoSignosIteracao", ROOT_PATH + "Dados/Iteracao", cabecalhoUsoSignosIteracao);
         // Arquivo de Predador uso signo
         String[] cabecalhoPredadorSignos = new String[]{"Geração","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10"};
 
-        arquivoTigreSignosPorGeracao = new ArquivoCSV("TigreUsoSignos", "Predador/Geracao", cabecalhoPredadorSignos);
-        arquivoAguiaSignosPorGeracao = new ArquivoCSV("AguiaUsoSignos", "Predador/Geracao", cabecalhoPredadorSignos);
-        arquivoCobraSignosPorGeracao = new ArquivoCSV("CobraUsoSignos", "Predador/Geracao", cabecalhoPredadorSignos);
+        arquivoTigreSignosPorGeracao = new ArquivoCSV("TigreUsoSignos", ROOT_PATH + "Predador/Geracao", cabecalhoPredadorSignos);
+        arquivoAguiaSignosPorGeracao = new ArquivoCSV("AguiaUsoSignos", ROOT_PATH + "Predador/Geracao", cabecalhoPredadorSignos);
+        arquivoCobraSignosPorGeracao = new ArquivoCSV("CobraUsoSignos", ROOT_PATH + "Predador/Geracao", cabecalhoPredadorSignos);
 
         String[] cabecalhoPredadorSignosPorIteracao = new String[]{"Iteração","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10"};
-        arquivoTigreSignosPorIteracao = new ArquivoCSV("TigreUsoSignos", "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
-        arquivoAguiaSignosPorIteracao = new ArquivoCSV("AguiaUsoSignos", "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
-        arquivoCobraSignosPorIteracao = new ArquivoCSV("CobraUsoSignos", "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
+        arquivoTigreSignosPorIteracao = new ArquivoCSV("TigreUsoSignos", ROOT_PATH + "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
+        arquivoAguiaSignosPorIteracao = new ArquivoCSV("AguiaUsoSignos", ROOT_PATH + "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
+        arquivoCobraSignosPorIteracao = new ArquivoCSV("CobraUsoSignos", ROOT_PATH + "Predador/Iteracao", cabecalhoPredadorSignosPorIteracao);
         
         escreveArquivosIteracao(ambiente);
     }

@@ -114,7 +114,7 @@ public class AG {
     
     public void imprimeDadosFinais(){
         System.out.println();
-        System.out.println("Total de Gerações: "+geracao);
+        System.out.println("Total de Gerações: "+geracao + 1);
         System.out.println("Total de Iterações: "+contIteracoes);
         System.out.println("Tempo de execução: "+timeExecution()+"ms");
     }

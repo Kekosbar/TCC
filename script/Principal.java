@@ -26,14 +26,14 @@ public class Principal {
     }
     
     private static void limparPastasArquivosCSV(){
-        ArquivoCSV.limparPasta("Macacos");
-        ArquivoCSV.limparPasta("Macacos/SignosPorPredador");
-        ArquivoCSV.limparPasta("Predador/Geracao/Probabilidade");
-        ArquivoCSV.limparPasta("Predador/Iteracao/Probabilidade");
-        ArquivoCSV.limparPasta("Dados/Geracao");
-        ArquivoCSV.limparPasta("Dados/Iteracao");
-        ArquivoCSV.limparPasta("Predador/Geracao");
-        ArquivoCSV.limparPasta("Predador/Iteracao");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Macacos");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Macacos/SignosPorPredador");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao/Probabilidade");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao/Probabilidade");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Dados/Geracao");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Dados/Iteracao");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao");
+        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao");
     }
     
     private static void gravaResultados(Macaco[] macacos) {
