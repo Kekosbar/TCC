@@ -13,7 +13,7 @@ public class Principal {
     private static int n_Prepadores = 10;
     private static int dimensao = 6;
     // Dados para o algoritmo evolutivo
-    private static int iteracoes = 60; // Número de vezes que cada animal se movimenta no ambiente a cada geração
+    private static int iteracoes = 20; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private static int eliminar = 1;
 
     private static final int AG_TYPE = AgAprendizagem.EVOLUTIVO;
