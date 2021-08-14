@@ -1,9 +1,11 @@
-package script;
+package script.animal;
 
 import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import script.arquivar.*;
 
 public class Macaco extends Animal implements Comparable<Macaco>{
 

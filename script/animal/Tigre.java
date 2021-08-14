@@ -1,4 +1,4 @@
-package script;
+package script.animal;
 
 public class Tigre extends Predador{
 

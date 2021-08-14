@@ -2,6 +2,8 @@ package script;
 
 import java.util.Random;
 
+import script.animal.*;
+
 public class Ambiente {
 
     private Animal[][] matriz; // Esta matriz 50x50 representa o ambiente com Macacos, Predadores e Campos Vazios

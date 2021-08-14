@@ -8,6 +8,9 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import script.animal.Macaco;
+import script.arquivar.Arquivar;
+
 public class AG {
 
     private Ambiente ambiente;
@@ -15,14 +18,16 @@ public class AG {
     private int contIteracoes = 0; // Contabiliza o total de iterações efetuadas por cada animal
     private final int eliminar;
     private int geracao = 0; // Contabiliza as gerações do algoritmo evolutivo
+    private int AG_TYPE;
     // Variáveis para contabilizar tempo de execução
     private Instant start;
     private Instant finish;
     
-    public AG(Ambiente ambiente, int iteracoes, int eliminar) {
+    public AG(Ambiente ambiente, int iteracoes, int eliminar, int AG_TYPE) {
         this.ambiente = ambiente;
         this.iteracoes = iteracoes;
         this.eliminar = eliminar;
+        this.AG_TYPE = AG_TYPE;
     }
     
     public void iniciar(){
@@ -114,7 +119,7 @@ public class AG {
     
     public void imprimeDadosFinais(){
         System.out.println();
-        System.out.println("Total de Gerações: "+geracao + 1);
+        System.out.println("Total de Gerações: "+(geracao + 1));
         System.out.println("Total de Iterações: "+contIteracoes);
         System.out.println("Tempo de execução: "+timeExecution()+"ms");
     }

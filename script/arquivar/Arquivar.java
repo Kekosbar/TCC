@@ -1,6 +1,9 @@
-package script;
+package script.arquivar;
 
 import java.io.IOException;
+
+import script.Ambiente;
+import script.animal.*;
 
 public class Arquivar {
     

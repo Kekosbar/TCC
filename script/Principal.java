@@ -2,6 +2,10 @@ package script;
 
 import java.io.IOException;
 
+import script.agaprendizagem.AgAprendizagem;
+import script.animal.Macaco;
+import script.arquivar.*;
+
 public class Principal {
 
     // Dados para o ambiente
@@ -11,29 +15,20 @@ public class Principal {
     // Dados para o algoritmo evolutivo
     private static int iteracoes = 60; // Número de vezes que cada animal se movimenta no ambiente a cada geração
     private static int eliminar = 1;
+
+    private static final int AG_TYPE = AgAprendizagem.EVOLUTIVO;
     private static final boolean SHOW_GRAFICS = false;
     
     public static void main(String[] args) {
-        limparPastasArquivosCSV(); // Limpa as pasta gerar novos arquivos
+        ArquivoCSV.limparPastasArquivosCSV(); // Limpa as pasta gerar novos arquivos
         // Inicializa um ambiente com Macacos e Predadores
         Ambiente ambiente = new Ambiente(n_Macacos, n_Prepadores, dimensao);
-        AG ag = new AG(ambiente, iteracoes, eliminar);
+        AG ag = new AG(ambiente, iteracoes, eliminar, AG_TYPE);
         ag.iniciar();
         ag.imprimeDadosFinais();
         gravaResultados(ambiente.getMacacos());
         if(SHOW_GRAFICS)
             mostraGraficos();
-    }
-    
-    private static void limparPastasArquivosCSV(){
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Macacos");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Macacos/SignosPorPredador");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao/Probabilidade");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao/Probabilidade");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Dados/Geracao");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Dados/Iteracao");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao");
-        ArquivoCSV.limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao");
     }
     
     private static void gravaResultados(Macaco[] macacos) {

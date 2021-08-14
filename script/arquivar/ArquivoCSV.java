@@ -1,4 +1,4 @@
-package script;
+package script.arquivar;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +47,17 @@ public class ArquivoCSV {
         for(File file: dir.listFiles()) 
             if (!file.isDirectory()) 
                 file.delete();
+    }
+
+    public static void limparPastasArquivosCSV(){
+        limparPasta(Arquivar.ROOT_PATH + "Macacos");
+        limparPasta(Arquivar.ROOT_PATH + "Macacos/SignosPorPredador");
+        limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao/Probabilidade");
+        limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao/Probabilidade");
+        limparPasta(Arquivar.ROOT_PATH + "Dados/Geracao");
+        limparPasta(Arquivar.ROOT_PATH + "Dados/Iteracao");
+        limparPasta(Arquivar.ROOT_PATH + "Predador/Geracao");
+        limparPasta(Arquivar.ROOT_PATH + "Predador/Iteracao");
     }
     
     public void criarArquivo(){
